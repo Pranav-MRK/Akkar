@@ -1,0 +1,159 @@
+/* Custom Navbar Styles */
+.navbar {
+    background-color: #FDFCF9 !important; /* Soft cream background */
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif; /* Or any elegant Serif font */
+    font-weight: 700;
+    color: #8B4513 !important; /* Terracotta/Brown color */
+    font-size: 1.8rem;
+}
+
+.nav-link {
+    color: #555 !important;
+    font-weight: 500;
+    margin: 0 10px;
+    font-size: 0.95rem;
+}
+
+.nav-link:hover {
+    color: #8B4513 !important;
+}
+
+.navbar-icons i {
+    color: #333;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.navbar-icons i:hover {
+    color: #8B4513;
+}
+
+footer {
+    height: 8rem;
+    background-color: #ebebeb; /* Light grey/off-white */
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.f-info-social, .f-info-links, .f-info-brand {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* Space between icons/links */
+}
+
+.f-info-social i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #8B4513; /* Using your brand's terracotta color */
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+    color: #8B4513;
+}
+
+.f-info-brand {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Custom Card Styling */
+.collab-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: #fff;
+    transition: transform 0.2s ease;
+}
+
+.collab-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+}
+
+.artist-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* Matching the 'Connect' button from your screenshot */
+.btn-terracotta {
+    background-color: #D36B3F;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+.btn-terracotta:hover {
+    background-color: #b55a32;
+    color: white;
+}
+
+.badge {
+    font-weight: 400;
+    padding: 6px 12px;
+}
+
+/* Terracotta Branding */
+.btn-terracotta {
+    background-color: #D36B3F;
+    color: white;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-terracotta:hover {
+    background-color: #b55a32;
+    color: white;
+    box-shadow: 0 4px 12px rgba(211, 107, 63, 0.3);
+}
+
+/* Typography */
+.section-title {
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 50px;
+    background-color: #D36B3F;
+}
+
+.ls-wide {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.work-detail-card img {
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.work-detail-card img:hover {
+    opacity: 0.8;
+}

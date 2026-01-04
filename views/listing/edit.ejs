@@ -1,0 +1,66 @@
+<% layout("layouts/boilarplate") -%>
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow-sm border-0 p-4" style="border-radius: 15px;">
+                <h3 class="fw-bold mb-4 text-center">Edit Artist Profile</h3>
+                
+                <form action="/artist/<%= artist._id %>?_method=PUT" method="POST">
+                    
+                    <div class="mb-3">
+                        <label for="name" class="form-label fw-bold">Full Name</label>
+                        <input type="text" name="artist[name]" class="form-control" id="name" value="<%= artist.name %>" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="specialty" class="form-label fw-bold">Specialty</label>
+                        <input type="text" name="artist[specialty]" class="form-control" id="specialty" value="<%= artist.specialty %>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="bio" class="form-label fw-bold">Bio</label>
+                        <textarea name="artist[bio]" class="form-control" id="bio" rows="6"><%= artist.bio %></textarea>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="location" class="form-label fw-bold">Location</label>
+                            <input type="text" name="artist[location]" class="form-control" id="location" value="<%= artist.location %>">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="country" class="form-label fw-bold">Country</label>
+                            <input type="text" name="artist[country]" class="form-control" id="country" value="<%= artist.country %>">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="image" class="form-label fw-bold">Profile Image URL</label>
+                        <input type="text" name="artist[image][url]" class="form-control" id="image" value="<%= artist.image.url %>">
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-terracotta px-4 py-2 fw-bold">Save Changes</button>
+                        <a href="/artist/<%= artist._id %>" class="btn btn-outline-secondary px-4 py-2">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-terracotta {
+        background-color: #D36B3F;
+        color: white;
+        border: none;
+    }
+    .btn-terracotta:hover {
+        background-color: #b55a32;
+        color: white;
+    }
+    .form-control:focus {
+        border-color: #D36B3F;
+        box-shadow: 0 0 0 0.25rem rgba(211, 107, 63, 0.25);
+    }
+</style>

@@ -1,0 +1,103 @@
+<% layout("layouts/boilarplate") -%>
+
+<div class="container mt-5 mb-5">
+  <div class="row gx-5">
+
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm p-4 text-center sticky-top" style="top: 100px; border-radius: 15px;">
+            <img 
+            src="<%= artist.image.url %>" 
+            class="rounded-circle img-thumbnail mb-3 mx-auto"
+            style="width:180px;height:180px;object-fit:cover; border: 4px solid #f8f9fa;"
+            alt="profile"
+            >
+
+            <h2 class="fw-bold h4"><%= artist.name %></h2>
+            <h6 class="text-uppercase text-muted ls-wide" style="letter-spacing: 1px;"><%= artist.specialty %></h6>
+            <p class="text-secondary mt-2">
+            <i class="fa-solid fa-location-dot me-1"></i>
+            <%= artist.location %>, <%= artist.country %>
+            </p>
+            
+            <hr class="my-4">
+            
+            <div class="d-grid gap-2">
+                <button class="btn btn-terracotta py-2 fw-bold shadow-sm">Connect</button>
+                
+                <div class="d-flex gap-2">
+                    <a href="/artist/<%= artist._id %>/edit" class="btn btn-dark flex-grow-1 py-2">
+                        <i class="fa-solid fa-pen-to-square"></i> Edit
+                    </a>
+                    
+                    <form method="POST" action="/artist/<%= artist._id %>?_method=DELETE" class="flex-grow-1">
+                        <button class="btn btn-outline-danger w-100 py-2">
+                            <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                    </form> 
+                </div>
+            </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+
+      <section class="mb-5">
+        <h3 class="section-title mb-4">About the Artist</h3>
+        <p class="lead text-dark" style="line-height: 1.8; font-size: 1.1rem;">
+          <%= artist.bio %>
+        </p>
+      </section>
+
+      <section class="portfolio-section">
+        <h3 class="section-title mb-4">Featured Work</h3>
+
+        <% if (artist.portfolio && artist.portfolio.length > 0) { %>
+
+        <div id="artistCarousel" class="carousel slide shadow-lg rounded-4 overflow-hidden mb-5" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <% artist.portfolio.forEach((work, index) => { %>
+              <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                <img 
+                  src="<%= work.imageUrl %>" 
+                  class="d-block w-100"
+                  style="height:450px;object-fit:cover;"
+                  alt="<%= work.title %>"
+                >
+                <div class="carousel-caption d-none d-md-block p-3" style="background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);">
+                  <h5 class="fw-bold"><%= work.title %></h5>
+                  <p class="small mb-0"><%= work.description %></p>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#artistCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#artistCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+
+        <div class="row g-3">
+            <h4 class="h5 mb-3 text-muted">Portfolio Details</h4>
+            <% artist.portfolio.forEach(work => { %>
+                <div class="col-6 col-lg-4">
+                    <div class="work-detail-card">
+                        <img src="<%= work.imageUrl %>" class="img-fluid rounded mb-2 shadow-sm" alt="">
+                        <p class="small fw-bold mb-0 text-truncate"><%= work.title %></p>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+
+        <% } else { %>
+          <div class="alert alert-light border">No portfolio items available.</div>
+        <% } %>
+
+      </section>
+    </div>
+  </div>
+</div>
+
+
