@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const ejsMate= require("ejs-mate");
 const artistRouter = require("./routes/artist");
+const marketRouter = require("./routes/market"); 
 const path = require("path");
 const port = 8080;
 const methodOverride = require("method-override");
@@ -45,6 +46,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/artist",artistRouter);
+app.use("/marketplace",marketRouter);
 
 app.listen(port,()=>{
     console.log("listening.......");
