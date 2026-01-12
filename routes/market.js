@@ -4,8 +4,14 @@ const Market = require("../Model/listmarket"); // Importing the model we fixed e
 
 // Index Route - Show all items
 router.get("/", async (req, res) => {
-    const allItems = await Market.find({});
-    res.render("market/index", { allItems }); 
+    try {
+        const allItems = await Market.find({});
+        res.render("market/index", { allItems }); 
+        
+    } catch (error) {
+        res.send("Something went wrong: " + err);
+        
+    }
 });
 
 module.exports = router;

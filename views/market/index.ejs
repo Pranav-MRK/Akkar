@@ -1,1 +1,45 @@
 <% layout("layouts/boilarplate") -%>
+
+<style>
+    .market-card {
+        border: none;
+        transition: transform 0.2s ease-in-out;
+    }
+    .market-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+    .card-img-top {
+        border-radius: 10px 10px 0 0;
+    }
+    .price-tag {
+        font-size: 1.2rem;
+        color: #2c3e50;
+        font-weight: 700;
+    }
+</style>
+
+<div class="container">
+    <h2 class="text-center my-4">Explore the Market</h2>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1">
+        <% for(let item of allItems) { %>
+            <div class="col mb-4">
+                <div class="card h-100 shadow-sm market-card">
+                    <img src="<%= item.image.url %>" class="card-img-top" alt="<%= item.name %>" style="height: 250px; object-fit: cover;">
+                    
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title"><b><%= item.name %></b></h5>
+                        <p class="card-text text-muted flex-grow-1">
+                            <%= item.description.substring(0, 80) %><%= item.description.length > 80 ? '...' : '' %>
+                        </p>
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price-tag">&#8377;<%= item.price.toLocaleString("en-IN") %></span>
+                            <a href="/market/<%= item._id %>" class="btn btn-outline-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
