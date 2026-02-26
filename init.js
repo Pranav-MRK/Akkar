@@ -205,68 +205,98 @@ const seedDB = async()=>{
     await Market.deleteMany({});
 
     const sampleItems=[
+        
         {
-            name: "Abstract Painting",
-            description: "A beautiful hand-made oil painting.",
-            image: { url: "https://images.unsplash.com/photo-1541963463532-d68292c34b19" },
-            price: 1200
+        name: "Abstract Painting",
+        description: "A beautiful hand-made oil painting with vibrant strokes.",
+        image: {
+            url: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=1000&auto=format&fit=crop",
+            filename: "abstract_painting"
         },
-        {
-            name: "Clay Sculpture",
-            description: "Minimalist modern home decor.",
-            image: { url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb" },
-            price: 450
+        price: 1200
+    },
+    {
+        name: "Clay Sculpture",
+        description: "Minimalist modern home decor, hand-molded clay.",
+        image: {
+            url:"https://images.unsplash.com/photo-1582582429416-28f1f6e24d37?auto=format&fit=crop&w=800&q=80" ,
+            filename: "clay_sculpture"
         },
-        {
-            name: "Handcrafted Vase",
-            description: "Traditional ceramic vase with earthy tones.",
-            image: { url: "https://images.unsplash.com/photo-1582582420413-67f1d2f10d6e" },
-            price: 650
+        price: 450
+    },
+    {
+        name: "Handcrafted Vase",
+        description: "Traditional ceramic vase with earthy tones and glaze.",
+        image: {
+            url: "https://images.unsplash.com/photo-1580910051074-3eb694886505?q=80&w=1000&auto=format&fit=crop",
+            filename: "ceramic_vase"
         },
-        {
-            name: "Wooden Wall Art",
-            description: "Intricately carved wooden wall decoration.",
-            image: { url: "https://images.unsplash.com/photo-1598300052122-16c4c0a6d6c4" },
-            price: 900
+        price: 650
+    },
+    {
+        name: "Wooden Wall Art",
+        description: "Intricately carved wooden wall decoration from reclaimed oak.",
+        image: {
+            url: "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?q=80&w=1000&auto=format&fit=crop",
+            filename: "wooden_art"
         },
-        {
-            name: "Terracotta Pot",
-            description: "Eco-friendly handmade terracotta plant pot.",
-            image: { url: "https://images.unsplash.com/photo-1616627986425-61d9f0bb8c1b" },
-            price: 350
+        price: 900
+    },
+    {
+        name: "Terracotta Pot",
+        description: "Eco-friendly handmade terracotta plant pot for indoor gardens.",
+        image: {
+            url: "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=800&q=80",
+            filename: "terracotta_pot"
         },
-        {
-            name: "Handloom Cushion Cover",
-            description: "Ethnic handwoven cushion cover.",
-            image: { url: "https://images.unsplash.com/photo-1616627456712-4e9c4dbe5f47" },
-            price: 500
+        price: 350
+    },
+    {
+        name: "Handloom Cushion Cover",
+        description: "Ethnic handwoven cushion cover with organic dyes.",
+        image: {
+            url: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?q=80&w=1000&auto=format&fit=crop",
+            filename: "cushion_cover"
         },
-        {
-            name: "Metal Art Figurine",
-            description: "Modern abstract metal sculpture.",
-            image: { url: "https://images.unsplash.com/photo-1616627456732-7e5c6a8e2c4d" },
-            price: 1100
+        price: 500
+    },
+    {
+        name: "Metal Art Figurine",
+        description: "Modern abstract metal sculpture with a bronze finish.",
+        image: {
+            url: "https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=1000&auto=format&fit=crop",
+            filename: "metal_art"
         },
-        {
-            name: "Bamboo Table Lamp",
-            description: "Handcrafted bamboo lamp with warm lighting.",
-            image: { url: "https://images.unsplash.com/photo-1598300052680-06f7b1c2de6a" },
-            price: 1400
+        price: 1100
+    },
+    {
+        name: "Bamboo Table Lamp",
+        description: "Handcrafted bamboo lamp providing warm, ambient lighting.",
+        image: {
+            url: "https://images.unsplash.com/photo-1534073828943-f801091bb18c?q=80&w=1000&auto=format&fit=crop",
+            filename: "bamboo_lamp"
         },
-        {
-            name: "Hand-Painted Tray",
-            description: "Colorful hand-painted wooden serving tray.",
-            image: { url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c" },
-            price: 750
+        price: 1400
+    },
+    {
+        name: "Hand-Painted Tray",
+        description: "Colorful hand-painted wooden tray for serving or display.",
+        image: {
+            url: "https://images.unsplash.com/photo-1607082349566-1870c8c5b5e8?auto=format&fit=crop&w=800&q=80",
+            filename: "painted_tray"
         },
-        {
-            name: "Traditional Wall Plate",
-            description: "Decorative ceramic wall plate with ethnic motifs.",
-            image: { url: "https://images.unsplash.com/photo-1582582420413-9c4f5d0e9f2a" },
-            price: 600
-        }
-
-    ]
+        price: 750
+    },
+    {
+        name: "Traditional Wall Plate",
+        description: "Decorative ceramic wall plate featuring ethnic motifs.",
+        image: {
+            url: "https://images.unsplash.com/photo-1616627457021-10ae9c2e7e8f?auto=format&fit=crop&w=800&q=80",
+            filename: "wall_plate"
+        },
+        price: 600
+    }
+]
     await Market.insertMany(sampleItems);
     console.log("Data was initialized");
 }

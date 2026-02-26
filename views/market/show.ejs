@@ -1,0 +1,28 @@
+<% layout("layouts/boilarplate") -%>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card shadow">
+                <img src="<%= market.image.url %>" class="card-img-top" alt="<%= market.name %>" style="max-height: 400px; object-fit: cover;">
+                
+                <div class="card-body">
+                    <h3 class="card-title fw-bold"><%= market.name %></h3>
+                    <p class="card-text text-muted"><%= market.description %></p>
+                    <hr>
+                    <p class="price-tag h4">&#8377;<%= market.price.toLocaleString("en-IN") %></p>
+                    
+                    <div class="mt-4 d-flex gap-2">
+                        <a href="/marketplace/<%= market._id %>/edit" class="btn btn-info text-white">Edit Item</a>
+                        
+                        <form action="/marketplace/<%= market._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete Item</button>
+                        </form>
+                        
+                        <a href="/marketplace" class="btn btn-outline-secondary">Back to Market</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,13 +10,13 @@ const marketSchema = new Schema({
         type: String,
     },
     image: {
-        url: { 
+       url: { 
             type: String, 
-            required: true
+            required: true,
+            default: "https://unsplash.com/photos/man-in-black-and-white-sweater-standing-beside-wall-with-graffiti-fPYJeMmYWM4" // Fallback image
         },
-        filename: { // Good to have if you're using services like Cloudinary
-            type: String
-        }
+        filename: String// Good to have if you're using services like Cloudinary String
+        
     },
     price: {
         type: Number,
